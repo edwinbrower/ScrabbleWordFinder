@@ -21,7 +21,7 @@ const binarySearch = (array, target, start = 0, end = array.length) => {
   }
 };
 
-const findWords = string => {
+const findAllPermutationsAllLength = string => {
   const result = {};
   string = string.toUpperCase();
   const recurse = (stringSoFar, stringLeft) => {
@@ -39,7 +39,7 @@ const findWords = string => {
 };
 
 const result = [];
-findWords('byeman').forEach(perm => {
+findAllPermutationsAllLength('byeman').forEach(perm => {
   if (binarySearch(dictionaryAray, perm)) {
     result.push(perm);
   }

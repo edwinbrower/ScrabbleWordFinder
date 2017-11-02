@@ -1,5 +1,6 @@
 const input = document.querySelector('form');
 
+
 const processInputWord = e => {
   e.preventDefault();
   const word = e.path[0][0].value;
@@ -10,6 +11,17 @@ const processInputWord = e => {
   } else {
     console.log(word);
     // POST to server
+    $.ajax({
+      url: '/permutations', 
+      type: 'POST',
+      data: word,
+      success: (data) => {
+        console.log('success', data);
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
     // add words to page 
   }
 };

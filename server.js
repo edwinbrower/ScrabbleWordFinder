@@ -49,27 +49,20 @@ const findAllPermutationsAllLength = string => {
   return Object.keys(result);  
 };
 
-// const result = [];
-// findAllPermutationsAllLength('byeman').forEach(perm => {
-//   if (binarySearch(dictionaryAray, perm)) {
-//     result.push(perm);
-//   }
-// });
-
-// console.log(result);
-
 app.get('/', function(req, res) {
   res.send('Hello World!');
 });
 
 app.post('/permutations', function(req, res) {
-  const result = [];
-  // findAllPermutationsAllLength('byeman').forEach(perm => {
-  //   if (binarySearch(dictionaryAray, perm)) {
-  //     result.push(perm);
-  //   }
-  // });
   console.log('posted');
+  const string = Object.keys(req.body)[0];
+  const result = [];
+  findAllPermutationsAllLength(string).forEach(perm => {
+    if (binarySearch(dictionaryAray, perm)) {
+      result.push(perm);
+    }
+  });
+  res.send(result);
 });
 
 app.listen(3001, function() {
